@@ -1,0 +1,52 @@
+MACHINE = "raspberrypi-cm3"
+DISTRO ?= "openbmc-phosphor"
+PACKAGE_CLASSES ?= "package_rpm"
+SANITY_TESTED_DISTROS_append ?= " *"
+EXTRA_IMAGE_FEATURES = "debug-tweaks"
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+PATCHRESOLVE = "noop"
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+CONF_VERSION = "1"
+
+# Set the root password to '0penBmc'
+INHERIT += "extrausers"
+EXTRA_USERS_PARAMS = " \
+  usermod -p '\$1\$UGMqyqdG\$FZiylVFmRRfl9Z0Ue8G7e/' root; \
+  "
+KERNEL_FEATURES_remove = "phosphor-gpio-keys"
+
+# Overwrite flash offsets
+FLASH_UBOOT_OFFSET = "0"
+FLASH_KERNEL_OFFSET = "12288"
+FLASH_UBI_OFFSET = "${FLASH_KERNEL_OFFSET}"
+FLASH_ROFS_OFFSET = "65024"
+FLASH_RWFS_OFFSET = "122880"
+FLASH_SIZE = "3817472"
+
+# Flash characteristics in KB unless otherwise noted
+#FLASH_SIZE = "32768"
+#FLASH_PEB_SIZE ?= "64"
+# Flash page and overhead sizes in bytes
+#FLASH_PAGE_SIZE ?= "1"
+#FLASH_NOR_UBI_OVERHEAD ?= "64"
+
+# Fixed partition offsets
+#FLASH_UBOOT_OFFSET ?= "0"
+#FLASH_KERNEL_OFFSET ?= "512"
+#FLASH_UBI_OFFSET ?= "${FLASH_KERNEL_OFFSET}"
+#FLASH_ROFS_OFFSET ?= "4864"
+#FLASH_RWFS_OFFSET ?= "28672"
+
+# UBI volume sizes in KB unless otherwise noted.
+#FLASH_UBI_RWFS_SIZE ?= "6144"
+#FLASH_UBI_RWFS_TXT_SIZE ?= "6MiB"
+
+require conf/machine/include/obmc-bsp-common.inc
