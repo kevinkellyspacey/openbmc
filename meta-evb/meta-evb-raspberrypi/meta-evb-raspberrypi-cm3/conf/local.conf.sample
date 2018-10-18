@@ -16,6 +16,10 @@ BB_DISKMON_DIRS = "\
     ABORT,/tmp,10M,1K"
 CONF_VERSION = "1"
 
+IMAGE_FSTYPES += "ext4 tar.gz"
+KERNEL_IMAGETYPE_UBOOT="zImage"
+KERNEL_BOOTCMD="bootz"
+
 # Set the root password to '0penBmc'
 INHERIT += "extrausers"
 EXTRA_USERS_PARAMS = " \
