@@ -19,6 +19,7 @@ CONF_VERSION = "1"
 IMAGE_FSTYPES += "ext4 tar.gz"
 KERNEL_IMAGETYPE_UBOOT="zImage"
 KERNEL_BOOTCMD="bootz"
+FDTFILE="bcm2710-rpi-cm3.dtb"
 
 # Set the root password to '0penBmc'
 INHERIT += "extrausers"
@@ -54,3 +55,5 @@ FLASH_SIZE = "3817472"
 #FLASH_UBI_RWFS_TXT_SIZE ?= "6MiB"
 
 require conf/machine/include/obmc-bsp-common.inc
+
+PREFERRED_VERSION_linux-raspberrypi = "4.18.%"

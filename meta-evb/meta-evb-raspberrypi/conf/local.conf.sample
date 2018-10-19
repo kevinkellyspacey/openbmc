@@ -23,3 +23,5 @@ EXTRA_USERS_PARAMS = " \
   "
 
 require conf/machine/include/obmc-bsp-common.inc
+
+PREFERRED_VERSION_linux-raspberrypi = "4.18.%"
