@@ -17,9 +17,11 @@ BB_DISKMON_DIRS = "\
 CONF_VERSION = "1"
 
 IMAGE_FSTYPES += "ext4 tar.gz"
-KERNEL_IMAGETYPE_UBOOT="zImage"
-KERNEL_BOOTCMD="bootz"
-FDTFILE="bcm2710-rpi-cm3.dtb"
+KERNEL_IMAGETYPE_UBOOT = "zImage"
+KERNEL_BOOTCMD = "bootz"
+FDTFILE = "bcm2710-rpi-cm3.dtb"
+
+FDT_LOAD_ADDR = "0x02000000"
 
 # Set the root password to '0penBmc'
 INHERIT += "extrausers"
@@ -35,24 +37,6 @@ FLASH_UBI_OFFSET = "${FLASH_KERNEL_OFFSET}"
 FLASH_ROFS_OFFSET = "65024"
 FLASH_RWFS_OFFSET = "122880"
 FLASH_SIZE = "3817472"
-
-# Flash characteristics in KB unless otherwise noted
-#FLASH_SIZE = "32768"
-#FLASH_PEB_SIZE ?= "64"
-# Flash page and overhead sizes in bytes
-#FLASH_PAGE_SIZE ?= "1"
-#FLASH_NOR_UBI_OVERHEAD ?= "64"
-
-# Fixed partition offsets
-#FLASH_UBOOT_OFFSET ?= "0"
-#FLASH_KERNEL_OFFSET ?= "512"
-#FLASH_UBI_OFFSET ?= "${FLASH_KERNEL_OFFSET}"
-#FLASH_ROFS_OFFSET ?= "4864"
-#FLASH_RWFS_OFFSET ?= "28672"
-
-# UBI volume sizes in KB unless otherwise noted.
-#FLASH_UBI_RWFS_SIZE ?= "6144"
-#FLASH_UBI_RWFS_TXT_SIZE ?= "6MiB"
 
 require conf/machine/include/obmc-bsp-common.inc
 
