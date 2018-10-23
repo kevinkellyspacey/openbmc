@@ -16,7 +16,7 @@ BB_DISKMON_DIRS = "\
     ABORT,/tmp,10M,1K"
 CONF_VERSION = "1"
 
-IMAGE_FSTYPES += "ext4 tar.gz"
+IMAGE_FSTYPES += "ext4 tar.xz"
 KERNEL_IMAGETYPE_UBOOT = "zImage"
 KERNEL_BOOTCMD = "bootz"
 FDTFILE = "bcm2710-rpi-cm3.dtb"
