@@ -20,6 +20,12 @@ IMAGE_FSTYPES += "ext4 tar.xz"
 KERNEL_IMAGETYPE_UBOOT = "zImage"
 KERNEL_BOOTCMD = "bootz"
 FDTFILE = "bcm2708-rpi-0-w.dtb"
+RPI_UBOOT_CMD = "earlyprintk console=ttyAMA0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait"
+KERNEL_FILE = "u-boot.bin"
+ENABLE_UART = "1"
+DISABLE_SPLASH = "0"
+#ENABLE_I2C = "1"
+BOOT_DELAY = "1"
 
 # If you REALLY want a uImage
 #KERNEL_IMAGETYPE_UBOOT = "uImage"
