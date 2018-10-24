@@ -36,8 +36,7 @@ export TEMPLATECONF=meta-evb/meta-evb-raspberrypi/meta-evb-raspberrypi-cm3/conf
 build$ bitbake obmc-phosphor-image
 ```
 
-5. Get the build onto the flash device
-The following instructions will completely WIPE the CM3 eMMC flash storage. We'll use some of jumpnowtek's tools:
+5. Get the build onto the flash device. The following instructions will completely WIPE the CM3 eMMC flash storage. We'll use some of jumpnowtek's tools:
 
 ```
 build$ git clone -b sumo https://github.com/jumpnow/meta-rpi.git jumpnowtek
@@ -110,7 +109,7 @@ Starting kernel ...
 7. Now get hacking.
 
 ### Other RPI boards
-#### Raspberrry Pi 3 Model B
+#### Raspberry Pi 3 Model B
 
 Use the CM3 build if you want u-boot. The RPI3B specific u-boot doesn't seem to boot the device properly. Booting the zImage directly will work but defeats the full OpenBMC experience.
 
